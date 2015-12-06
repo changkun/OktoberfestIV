@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>Oktoberfest Information Visualization</title>
+        <meta name="description" content="nothing">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">Information Visualization (Oktoberfest Project)</h1>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+                <section class="infovis-area">
+                  <p>Input a CSV Data</p>
+                  Notes: Control data scaling can get a better visual effect, such as do not put the column's value which is less than 1 and the column's value which is greater than 100 in the one of a csv file.<br/>
+                  Here you can copy some sample data:<br/>
+                  [<a href="data/1oktoberfest_total.csv">whole data</a>]
+                  [<a href="data/2oktoberfest_beer_consumption.csv">sample 1</a>]
+                  [<a href="data/3oktoberfest_bierpreis.csv">sample 2</a>]
+                  <br/><br/>
+                  <input type="file" id="csvfile" name="csvfile" /><br/><br/>
+                  <textarea>Or input data like a csv data format here...</textarea>
+                  <section class="button-container">
+                    <p>Choose a style:</p>
+                    <div>
+                        <img data-charttype="column" class="chartTypeImages" src="img/column.png"/>
+                        <img data-charttype="line" class="chartTypeImages" src="img/line.png"/>
+                        <img data-charttype="points" class="chartTypeImages" src="img/points.png"/>
+                        <img data-charttype="area" class="chartTypeImages" src="img/area.png"/>
+                    </div>
+
+                    <div id="mainButtons" style="position:relative;">
+
+                      <div style="text-align:left;position:absolute;top:-0.9em;background:#fff;font-weight:bold;">Options</div>
+                      <a class="tooltip" title="stack columns (only for multiseries data)">
+                          <img class="chartOptions stacked tooltip" title="" src="img/stacked.png" />
+                      </a>
+                      <a class="tooltip" title="side-by-side columns (only for multiseries data)">
+                          <img class="chartOptions unstacked tooltip chartTypeSelected" title="" src="img/unstacked.png" />
+                      </a>
+
+                      <a class="tooltip" title="flip data so that the xaxis becomes the legend and vice versa.">
+                          <img class="chartOptions flip tooltip" title="" src="img/flipdata.png" />
+                      </a>
+                      <a class="tooltip" title="rotate x-axis labels">
+                          <img class="chartOptions rotatelabels tooltip" title="" src="img/rotatelabels.png" />
+                      </a>
+                      <span id="barSelectedButtons" style="display:none;">
+                        <a class="tooltip" title="increase column width">
+                          <img class="chartOptions barwidthplus" src="img/barwidthplus.png" />
+                        </a>
+                        <a class="tooltip" title="decrease column width">
+                          <img class="chartOptions barwidthminus" src="img/barwidthminus.png" />
+                        </a>
+                      </span>
+
+                    </div>
+
+                    <div class="editTitles">
+                        <span id="editMainTitle" style="display:none;padding:1em;">Main Title: <input type="text" style="margin-right:1em;" value="- Click To Edit Me -" />
+                            <button>Finished Editing</button>
+                        </span>
+
+                        <span id="editYAxis" style="display:none;padding:1em;">Y-Axis Label: <input type="text" style="margin-right:1em;" value="- Click To Edit Me -" />
+                            <button>Finished Editing</button>
+                        </span>
+
+                        <span id="editXAxis" style="display:none;padding:1em;">X-Axis Label: <input type="text" style="margin-right:1em;" value="- Click To Edit Me -" />
+                            <button>Finished Editing</button>
+                        </span>
+                    </div>
+
+
+                  </section>
+                  <section id="a4area">
+                      <br/>
+                      <div id="mainTitleContainer">
+                          <h2 id="mainTitle" style="display:none;z-index:20;"></h2>
+                      </div>
+                      <div id="placeholder"></div>
+                    <br/>
+
+                  </section>
+
+                </section>
+
+            </div>
+        </div>
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3><a href="http://changkun.us">Changkun Ou</a> - 2015 - University of Munich - Media Computer Science - IV</h3>
+            </footer>
+        </div>
+
+        <script>window.jQuery || document.write('<script src="js/thridparty/jquery-2.1.4.min.js"><\/script>')</script>
+        <script type="text/javascript" src="js/thridparty/jquery.flot.min.js"></script>
+        <script type="text/javascript" src="js/thridparty/jquery.flot.stack.min.js"></script>
+        <script type="text/javascript" src="js/thridparty/jquery.flot.orderbars.js"></script>
+        <script type="text/javascript" src="js/thridparty/autogrowTextarea.js"></script>
+        <script type="text/javascript" src="js/thridparty/jquery.flot.tickrotor.js"></script>
+        <script type="text/javascript" src="js/thridparty/jquery.flot.axislabels.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
